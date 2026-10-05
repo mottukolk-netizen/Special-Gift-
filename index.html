@@ -1,60 +1,824 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#7b0000">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#720000">
+
+    <meta name="description"
+          content="नवरात्रि की शुभकामनाएं अपने दोस्तों और परिवार के साथ शेयर करें।">
 
     <title>नवरात्रि का Special Gift 🎁</title>
 
-    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #8b0000 0%,
+                    #520000 45%,
+                    #190000 100%
+                );
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           TOP BELLS
+        ========================= */
+
+        .bells {
+
+            text-align: center;
+
+            font-size: 28px;
+
+            padding: 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #600000,
+                    #b8860b,
+                    #600000
+                );
+
+            border-bottom:
+                2px solid #ffd700;
+
+            animation:
+                bellMove 2s infinite alternate;
+        }
+
+
+        @keyframes bellMove {
+
+            from {
+                transform: rotate(-1deg);
+            }
+
+            to {
+                transform: rotate(1deg);
+            }
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            text-align: center;
+
+            padding:
+                25px 15px 15px;
+        }
+
+
+        header h1 {
+
+            color: #ffe79a;
+
+            font-size:
+                clamp(23px, 6vw, 36px);
+
+            line-height: 1.35;
+
+            text-shadow:
+                0 3px 8px black;
+        }
+
+
+        header h2 {
+
+            margin-top: 12px;
+
+            color: #ffd700;
+
+            font-size:
+                clamp(19px, 5vw, 29px);
+
+            text-shadow:
+                0 3px 8px black;
+        }
+
+
+        .subtitle {
+
+            margin-top: 10px;
+
+            color: #ffeac0;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FLOATING MESSAGE
+        ========================= */
+
+        .floating {
+
+            position: fixed;
+
+            right: 0;
+
+            top: 42%;
+
+            width: 105px;
+
+            padding: 10px 7px;
+
+            text-align: center;
+
+            z-index: 1000;
+
+            color: #5b0000;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe44d,
+                    #ff9800
+                );
+
+            border-radius:
+                15px 0 0 15px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,.5);
+
+            animation:
+                floatBox 2s infinite alternate;
+        }
+
+
+        .arrow {
+
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 28px;
+
+            animation:
+                arrowMove .8s infinite alternate;
+        }
+
+
+        @keyframes floatBox {
+
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-8px);
+            }
+        }
+
+
+        @keyframes arrowMove {
+
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(7px);
+            }
+        }
+
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .card {
+
+            width: 94%;
+
+            max-width: 650px;
+
+            margin:
+                10px auto 25px;
+
+            padding: 15px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid
+                rgba(255,215,0,.5);
+
+            box-shadow:
+                0 15px 50px
+                rgba(0,0,0,.55);
+
+            position: relative;
+        }
+
+
+        /* =========================
+           CHAKRA
+        ========================= */
+
+        .chakra {
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 15px;
+
+            z-index: 10;
+
+            font-size: 48px;
+
+            color: #ffd700;
+
+            text-shadow:
+                0 0 15px #ffae00;
+
+            animation:
+                rotateChakra 5s linear infinite;
+        }
+
+
+        @keyframes rotateChakra {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        .photo {
+
+            width: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background:
+                #300000;
+        }
+
+
+        .photo img {
+
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            max-width: 100%;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 0 35px
+                rgba(255,215,0,.35);
+
+            animation:
+                imageGlow 3s infinite alternate;
+        }
+
+
+        @keyframes imageGlow {
+
+            from {
+                filter:
+                    brightness(1)
+                    saturate(1);
+            }
+
+            to {
+                filter:
+                    brightness(1.08)
+                    saturate(1.1);
+            }
+        }
+
+
+        /* =========================
+           BLESSING
+        ========================= */
+
+        .blessing {
+
+            text-align: center;
+
+            padding:
+                20px 8px 5px;
+        }
+
+
+        .flowers {
+
+            font-size: 24px;
+
+            margin: 7px;
+        }
+
+
+        .blessing h2 {
+
+            color: #ffd700;
+
+            font-size: 30px;
+
+            margin: 8px;
+        }
+
+
+        .blessing p {
+
+            color: #fff1c7;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+        .music {
+
+            margin-top: 18px;
+
+            padding: 18px;
+
+            text-align: center;
+
+            background:
+                rgba(0,0,0,.30);
+
+            border:
+                1px solid
+                rgba(255,215,0,.4);
+
+            border-radius: 18px;
+        }
+
+
+        .music-title {
+
+            color: #ffd700;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+
+        #playButton {
+
+            border: 0;
+
+            padding:
+                13px 30px;
+
+            border-radius: 50px;
+
+            color: #5b0000;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffd700,
+                    #ff9000
+                );
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        #musicText {
+
+            margin-top: 10px;
+
+            color: #ffe8ad;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           ADS
+        ========================= */
+
+        .ads {
+
+            width: 94%;
+
+            max-width: 650px;
+
+            margin:
+                25px auto;
+        }
+
+
+        .ads-title {
+
+            text-align: center;
+
+            color: #ffd700;
+
+            font-size: 14px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .ad {
+
+            height: 120px;
+
+            margin:
+                15px 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color:
+                rgba(255,255,255,.45);
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px dashed
+                rgba(255,215,0,.5);
+
+            border-radius: 12px;
+        }
+
+
+        /* =========================
+           NAME SECTION
+        ========================= */
+
+        .nameBox {
+
+            width: 94%;
+
+            max-width: 650px;
+
+            margin:
+                30px auto;
+
+            padding: 28px 18px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid
+                rgba(255,215,0,.5);
+
+            border-radius: 22px;
+        }
+
+
+        .gift {
+
+            font-size: 55px;
+
+            animation:
+                giftMove 1.5s infinite alternate;
+        }
+
+
+        @keyframes giftMove {
+
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-8px);
+            }
+        }
+
+
+        .nameBox h2 {
+
+            color: #ffd700;
+
+            font-size: 28px;
+
+            margin: 10px 0;
+        }
+
+
+        .nameBox p {
+
+            color: #ffeac0;
+
+            line-height: 1.7;
+
+            font-size: 15px;
+
+            margin-bottom: 18px;
+        }
+
+
+        #name {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: 0;
+
+            outline: none;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            font-size: 16px;
+
+            color: #222;
+        }
+
+
+        #generate {
+
+            width: 100%;
+
+            margin-top: 12px;
+
+            padding: 15px;
+
+            border: 0;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffd700,
+                    #ff8c00
+                );
+
+            color: #5b0000;
+
+            font-size: 17px;
+
+            font-weight: bold;
+        }
+
+
+        #result {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            background:
+                rgba(0,0,0,.3);
+
+            border-radius: 15px;
+        }
+
+
+        #link {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+        }
+
+
+        .buttons {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 8px;
+
+            margin-top: 10px;
+        }
+
+
+        .buttons button {
+
+            padding: 12px 5px;
+
+            border: 0;
+
+            border-radius: 9px;
+
+            background: #ffd700;
+
+            color: #5b0000;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding:
+                30px 15px 50px;
+
+            color: #ffe8b0;
+
+            line-height: 1.8;
+        }
+
+
+        footer strong {
+
+            color: #ffd700;
+
+            font-size: 23px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width:500px) {
+
+            .floating {
+                width: 92px;
+                font-size: 11px;
+            }
+
+            .chakra {
+                font-size: 38px;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <div class="top-bells">
+
+    <!-- BELLS -->
+
+    <div class="bells">
         🔔 🔔 🔔 🔔 🔔
     </div>
 
-    <header class="header">
-        <h1>🙏 आप को और आपके परिवार वालों को 🙏</h1>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1 id="mainTitle">
+            🙏 आप को और आपके परिवार वालों को 🙏
+        </h1>
 
         <h2>
             ADVANCE में नवरात्रि की शुभकामनाएं
         </h2>
 
-        <p class="sub-heading">
+        <p class="subtitle">
             🌺 माता रानी का आशीर्वाद सदैव आपके साथ रहे 🌺
         </p>
+
     </header>
 
 
-    <div class="floating-box">
-        <span>
-            नीचे जाएँ और<br>
-            अपना नाम लिखें
+    <!-- FLOATING MESSAGE -->
+
+    <div class="floating">
+
+        नीचे जाएँ और<br>
+        अपना नाम लिखें
+
+        <span class="arrow">
+            ↓
         </span>
 
-        <div class="down-arrow">↓</div>
     </div>
 
 
-    <main class="main-card">
+    <!-- MAIN -->
 
-        <div class="chakra">☸</div>
+    <main class="card">
 
-        <div class="image-container">
 
-            <div class="glow"></div>
+        <!-- CHAKRA -->
+
+        <div class="chakra">
+            ☸
+        </div>
+
+
+        <!-- MATAJI PHOTO -->
+
+        <div class="photo">
 
             <img
                 src="./assets/mataji.png"
                 alt="माता रानी"
-                class="mataji"
             >
 
         </div>
 
+
+        <!-- BLESSING -->
 
         <div class="blessing">
 
@@ -78,17 +842,19 @@
         </div>
 
 
-        <div class="music-card">
+        <!-- MUSIC -->
+
+        <div class="music">
 
             <div class="music-title">
                 🎵 Navratri Special
             </div>
 
-            <button
-                id="playBtn"
-                class="play-btn">
+
+            <button id="playButton">
                 ▶ Play Song
             </button>
+
 
             <audio
                 id="song"
@@ -96,123 +862,64 @@
                 preload="auto">
             </audio>
 
-            <p id="musicStatus">
+
+            <p id="musicText">
                 🔊 Song चलाने के लिए Play दबाएँ
             </p>
 
         </div>
 
+
     </main>
 
 
-    <section class="ads-section">
+    <!-- ADS -->
 
-        <h3>Advertisement</h3>
+    <section class="ads">
 
-        <div class="ad-box">
+        <div class="ads-title">
             Advertisement
         </div>
 
-        <div class="ad-box">
+
+        <div class="ad">
             Advertisement
         </div>
 
-        <div class="ad-box">
+
+        <div class="ad">
             Advertisement
         </div>
 
-        <div class="ad-box">
+
+        <div class="ad">
+            Advertisement
+        </div>
+
+
+        <div class="ad">
             Advertisement
         </div>
 
     </section>
 
 
-    <section class="name-section">
+    <!-- NAME -->
 
-        <div class="gift-icon">
+    <section class="nameBox">
+
+
+        <div class="gift">
             🎁
         </div>
+
 
         <h2>
             अपना नाम लिखें
         </h2>
 
+
         <p>
             यहाँ पर अपना नाम लिखें और अपने दोस्तों
             और परिवार के सदस्यों को आपके नाम का
-            नवरात्रि Gift Link भेजें।
-        </p>
-
-        <input
-            type="text"
-            id="nameInput"
-            placeholder="अपना नाम यहाँ लिखें"
-            maxlength="40"
-        >
-
-        <button
-            id="generateBtn"
-            class="generate-btn">
-            🎁 Gift Link बनाएं
-        </button>
-
-
-        <div
-            id="result"
-            class="result"
-            style="display:none;">
-
-            <p>
-                आपका Gift Link तैयार है ❤️
-            </p>
-
-            <input
-                type="text"
-                id="generatedLink"
-                readonly
-            >
-
-            <div class="share-buttons">
-
-                <button id="copyBtn">
-                    📋 Copy Link
-                </button>
-
-                <button id="whatsappBtn">
-                    💚 WhatsApp
-                </button>
-
-                <button id="shareBtn">
-                    📤 Share
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <footer>
-
-        <p>
-            🌺 जय माता दी 🌺
-        </p>
-
-        <p>
-            यह शुभकामना संदेश अपने दोस्तों और
-            परिवार के साथ जरूर शेयर करें।
-        </p>
-
-        <small>
-            Made with ❤️ for Navratri
-        </small>
-
-    </footer>
-
-
-    <script src="./script.js"></script>
-
-</body>
-    </html>
+            नवरात्रि Gift Link भेज
