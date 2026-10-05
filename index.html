@@ -1,222 +1,366 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
+document.addEventListener("DOMContentLoaded", function () {
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    const song = document.getElementById("song");
+    const playBtn = document.getElementById("playBtn");
+    const musicStatus = document.getElementById("musicStatus");
 
-    <meta name="theme-color" content="#7b0000">
+    const nameInput = document.getElementById("nameInput");
+    const generateBtn = document.getElementById("generateBtn");
 
-    <meta name="description"
-          content="नवरात्रि की शुभकामनाएं अपने परिवार और दोस्तों के साथ शेयर करें।">
+    const result = document.getElementById("result");
+    const generatedLink = document.getElementById("generatedLink");
 
-    <title>नवरात्रि का Special Gift 🎁</title>
+    const copyBtn = document.getElementById("copyBtn");
+    const whatsappBtn = document.getElementById("whatsappBtn");
+    const shareBtn = document.getElementById("shareBtn");
 
-    <link rel="stylesheet" href="./style.css">
-</head>
 
-<body>
+    /* =================================
+       MUSIC
+    ================================= */
 
-    <!-- Decorative Bells -->
-    <div class="top-bells">
-        🔔　🔔　🔔　🔔　🔔
-    </div>
+    function playMusic() {
 
-    <!-- Main Heading -->
-    <header class="header">
-        <h1>
-            🙏 आप को और आपके परिवार वालों को 🙏
-        </h1>
+        song.play()
+            .then(function () {
 
-        <h2>
-            ADVANCE में नवरात्रि की शुभकामनाएं
-        </h2>
+                playBtn.textContent = "⏸ Pause Song";
 
-        <p class="sub-heading">
-            🌺 माता रानी का आशीर्वाद सदैव आपके साथ रहे 🌺
-        </p>
-    </header>
+                musicStatus.textContent =
+                    "🎵 Navratri Special चल रहा है";
 
+            })
+            .catch(function () {
 
-    <!-- Floating Instruction -->
-    <div class="floating-box">
-        <span>नीचे जाएँ और<br>अपना नाम लिखें</span>
-        <div class="down-arrow">↓</div>
-    </div>
+                musicStatus.textContent =
+                    "🔊 Song चलाने के लिए Play दबाएँ";
 
+            });
 
-    <!-- Main Card -->
-    <main class="main-card">
+    }
 
-        <!-- Rotating Chakra -->
-        <div class="chakra">☸</div>
 
-        <!-- Mataji Image -->
-        <div class="image-container">
+    function pauseMusic() {
 
-            <div class="glow"></div>
+        song.pause();
 
-            <img
-                src="./assets/mataji.png"
-                alt="माता रानी"
-                class="mataji"
-            >
+        playBtn.textContent = "▶ Play Song";
 
-        </div>
+        musicStatus.textContent =
+            "⏸ Song paused";
+    }
 
 
-        <!-- Greeting -->
-        <div class="blessing">
+    playBtn.addEventListener("click", function () {
 
-            <div class="flowers">
-                🌺 🌸 🌺
-            </div>
+        if (song.paused) {
 
-            <h2>
-                जय माता दी 🙏
-            </h2>
+            playMusic();
 
-            <p>
-                माता रानी आपके जीवन में<br>
-                सुख, शांति, समृद्धि और खुशियाँ लाएँ।
-            </p>
+        } else {
 
-            <div class="flowers">
-                🌸 🌺 🌸
-            </div>
+            pauseMusic();
 
-        </div>
+        }
 
+    });
 
-        <!-- Music -->
-        <div class="music-card">
 
-            <div class="music-title">
-                🎵 Navratri Special
-            </div>
+    song.addEventListener("ended", function () {
 
-            <button id="playBtn" class="play-btn">
-                ▶ Play Song
-            </button>
+        playBtn.textContent = "▶ Play Song";
 
-            <audio
-                id="song"
-                src="./song.mp3"
-                preload="auto"
-                playsinline>
-            </audio>
+        musicStatus.textContent =
+            "🎵 Song समाप्त हो गया";
 
-            <p id="musicStatus">
-                🔊 Song चलाने के लिए Play दबाएँ
-            </p>
+    });
 
-        </div>
 
-    </main>
+    /*
+       Browser autoplay policy:
+       Page खुलते ही music play करने की कोशिश।
+       Mobile Chrome इसे रोक सकता है।
+    */
 
+    setTimeout(function () {
 
-    <!-- Advertisement Area -->
-    <section class="ads-section">
+        song.play()
+            .then(function () {
 
-        <h3>Advertisement</h3>
+                playBtn.textContent =
+                    "⏸ Pause Song";
 
-        <div class="ad-box">
-            Advertisement
-        </div>
+                musicStatus.textContent =
+                    "🎵 Navratri Special चल रहा है";
 
-        <div class="ad-box">
-            Advertisement
-        </div>
+            })
+            .catch(function () {
 
-        <div class="ad-box">
-            Advertisement
-        </div>
+                console.log(
+                    "Autoplay blocked by browser."
+                );
 
-        <div class="ad-box">
-            Advertisement
-        </div>
+            });
 
-    </section>
+    }, 500);
 
 
-    <!-- Personalization Section -->
-    <section class="name-section">
+    /* =================================
+       READ NAME FROM URL
+    ================================= */
 
-        <div class="gift-icon">
-            🎁
-        </div>
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-        <h2>
-            अपना नाम लिखें
-        </h2>
+    const senderName =
+        params.get("name");
 
-        <p>
-            यहाँ पर अपना नाम लिखें और अपने दोस्तों
-            और परिवार के सदस्यों को आपके नाम का
-            नवरात्रि Gift Link भेजें।
-        </p>
 
+    if (senderName) {
 
-        <input
-            type="text"
-            id="nameInput"
-            placeholder="अपना नाम यहाँ लिखें"
-            maxlength="40"
-            autocomplete="name"
-        >
+        const decodedName =
+            decodeURIComponent(senderName);
 
+        const heading =
+            document.querySelector(".header h1");
 
-        <button
-            id="generateBtn"
-            class="generate-btn">
-            🎁 Gift Link बनाएं
-        </button>
+        if (heading) {
 
+            heading.innerHTML =
+                "🎁 " +
+                escapeHTML(decodedName) +
+                " ने आपके लिए नवरात्रि का Gift भेजा है 🎁";
 
-        <div
-            id="result"
-            class="result"
-            style="display:none;">
+        }
 
-            <p>
-                आपका Gift Link तैयार है ❤️
-            </p>
+        document.title =
+            decodedName +
+            " ने आपके लिए नवरात्रि का Gift भेजा है 🎁";
 
-            <input
-                type="text"
-                id="generatedLink"
-                readonly
-            >
+    }
 
-            <div class="share-buttons">
 
-                <button id="copyBtn">
-                    📋 Copy Link
-                </button>
+    /* =================================
+       GENERATE GIFT LINK
+    ================================= */
 
-                <button id="whatsappBtn">
-                    💚 WhatsApp
-                </button>
+    generateBtn.addEventListener(
+        "click",
+        function () {
 
-                <button id="shareBtn">
-                    📤 Share
-                </button>
+            const name =
+                nameInput.value.trim();
 
-            </div>
+            if (!name) {
 
-        </div>
+                alert(
+                    "कृपया पहले अपना नाम लिखें।"
+                );
 
-    </section>
+                nameInput.focus();
 
+                return;
+            }
 
-    <!-- Footer -->
-    <footer>
 
-        <p>
-            🌺 जय माता दी 🌺
-        </p>
+            /*
+              Current page का URL लिया जा रहा है।
+              Example:
 
-        <p>
-            यह शुभकामना संदेश अपने दोस्तों और
-           
+              https://example.github.io/Special-Gift-/
+
+              बनेगा:
+
+              https://example.github.io/Special-Gift-/?name=Prem%20Singh
+            */
+
+            const baseURL =
+                window.location.origin +
+                window.location.pathname;
+
+            const giftLink =
+                baseURL +
+                "?name=" +
+                encodeURIComponent(name);
+
+
+            generatedLink.value =
+                giftLink;
+
+            result.style.display =
+                "block";
+
+
+            result.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+    );
+
+
+    /* =================================
+       COPY LINK
+    ================================= */
+
+    copyBtn.addEventListener(
+        "click",
+        async function () {
+
+            const link =
+                generatedLink.value;
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    link
+                );
+
+                copyBtn.textContent =
+                    "✅ Copied!";
+
+                setTimeout(function () {
+
+                    copyBtn.textContent =
+                        "📋 Copy Link";
+
+                }, 2000);
+
+            } catch (error) {
+
+                generatedLink.select();
+
+                document.execCommand(
+                    "copy"
+                );
+
+                copyBtn.textContent =
+                    "✅ Copied!";
+
+            }
+
+        }
+    );
+
+
+    /* =================================
+       WHATSAPP
+    ================================= */
+
+    whatsappBtn.addEventListener(
+        "click",
+        function () {
+
+            const link =
+                generatedLink.value;
+
+            const message =
+                "🎁 मैंने आपके लिए नवरात्रि का Special Gift भेजा है 🙏🌺\n\n" +
+                "यहाँ क्लिक करके Gift खोलें 👇\n\n" +
+                link +
+                "\n\n" +
+                "🌺 जय माता दी 🌺";
+
+
+            const whatsappURL =
+                "https://wa.me/?text=" +
+                encodeURIComponent(message);
+
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+
+        }
+    );
+
+
+    /* =================================
+       NATIVE SHARE
+    ================================= */
+
+    shareBtn.addEventListener(
+        "click",
+        async function () {
+
+            const link =
+                generatedLink.value;
+
+            const shareData = {
+
+                title:
+                    "नवरात्रि का Special Gift 🎁",
+
+                text:
+                    "🙏 आपके लिए नवरात्रि का Special Gift है 🌺",
+
+                url: link
+
+            };
+
+
+            if (
+                navigator.share
+            ) {
+
+                try {
+
+                    await navigator.share(
+                        shareData
+                    );
+
+                } catch (error) {
+
+                    console.log(
+                        "Share cancelled."
+                    );
+
+                }
+
+            } else {
+
+                try {
+
+                    await navigator.clipboard.writeText(
+                        link
+                    );
+
+                    alert(
+                        "Gift Link copy हो गया है। अब आप इसे WhatsApp, Instagram, Telegram आदि पर भेज सकते हैं।"
+                    );
+
+                } catch (error) {
+
+                    alert(
+                        link
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+
+    /* =================================
+       HTML ESCAPE
+    ================================= */
+
+    function escapeHTML(text) {
+
+        const div =
+            document.createElement("div");
+
+        div.textContent =
+            text;
+
+        return div.innerHTML;
+
+    }
+
+});
