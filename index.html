@@ -1,275 +1,222 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#6b0808">
+    <meta name="theme-color" content="#7b0000">
 
-  <title>नवरात्रि की शुभकामनाएं 🎁</title>
+    <meta name="description"
+          content="नवरात्रि की शुभकामनाएं अपने परिवार और दोस्तों के साथ शेयर करें।">
 
-  <link rel="stylesheet" href="style.css">
+    <title>नवरात्रि का Special Gift 🎁</title>
+
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-  <main class="page">
+    <!-- Decorative Bells -->
+    <div class="top-bells">
+        🔔　🔔　🔔　🔔　🔔
+    </div>
 
-    <!-- TOP GREETING -->
+    <!-- Main Heading -->
+    <header class="header">
+        <h1>
+            🙏 आप को और आपके परिवार वालों को 🙏
+        </h1>
 
-    <section class="heading">
+        <h2>
+            ADVANCE में नवरात्रि की शुभकामनाएं
+        </h2>
 
-      <div class="small-title">
-        🌺 शुभ नवरात्रि 🌺
-      </div>
-
-      <h1>
-        आप को और आपके परिवार वालों को
-        <br>
-        <span>ADVANCE में</span>
-        <br>
-        <strong>नवरात्रि की शुभकामनाएं</strong>
-      </h1>
-
-      <p>
-        माता रानी आपके घर में सुख,
-        शांति और समृद्धि लाएं 🙏
-      </p>
-
-    </section>
+        <p class="sub-heading">
+            🌺 माता रानी का आशीर्वाद सदैव आपके साथ रहे 🌺
+        </p>
+    </header>
 
 
-    <!-- MATAJI IMAGE -->
-
-    <section class="main-card">
-
-      <div class="image-container">
-
-        <img
-          src="assets/mataji.png"
-          alt="माता रानी"
-          class="mataji"
-        >
+    <!-- Floating Instruction -->
+    <div class="floating-box">
+        <span>नीचे जाएँ और<br>अपना नाम लिखें</span>
+        <div class="down-arrow">↓</div>
+    </div>
 
 
-        <!-- RIGHT POPUP -->
+    <!-- Main Card -->
+    <main class="main-card">
 
-        <a
-          href="#name-section"
-          class="scroll-popup"
-        >
+        <!-- Rotating Chakra -->
+        <div class="chakra">☸</div>
 
-          <button
-            class="close-popup"
-            type="button"
-            onclick="event.preventDefault(); this.parentElement.style.display='none';"
-          >
-            ×
-          </button>
+        <!-- Mataji Image -->
+        <div class="image-container">
 
-          <span>नीचे जाये</span>
+            <div class="glow"></div>
 
-          <b>
-            और अपना
-            <br>
-            नाम लिखे
-          </b>
+            <img
+                src="./assets/mataji.png"
+                alt="माता रानी"
+                class="mataji"
+            >
 
-          <div class="arrow">
-            ↓
-          </div>
-
-        </a>
-
-      </div>
-
-
-      <!-- MUSIC -->
-
-      <div class="music-player">
-
-        <button id="musicButton">
-          ▶
-        </button>
-
-        <div>
-          <b>🎵 Navratri Special</b>
-
-          <small id="musicStatus">
-            भक्ति संगीत चलाने के लिए दबाएं
-          </small>
         </div>
 
-      </div>
 
-      <audio id="song" src="song.mp3"></audio>
+        <!-- Greeting -->
+        <div class="blessing">
+
+            <div class="flowers">
+                🌺 🌸 🌺
+            </div>
+
+            <h2>
+                जय माता दी 🙏
+            </h2>
+
+            <p>
+                माता रानी आपके जीवन में<br>
+                सुख, शांति, समृद्धि और खुशियाँ लाएँ।
+            </p>
+
+            <div class="flowers">
+                🌸 🌺 🌸
+            </div>
+
+        </div>
+
+
+        <!-- Music -->
+        <div class="music-card">
+
+            <div class="music-title">
+                🎵 Navratri Special
+            </div>
+
+            <button id="playBtn" class="play-btn">
+                ▶ Play Song
+            </button>
+
+            <audio
+                id="song"
+                src="./song.mp3"
+                preload="auto"
+                playsinline>
+            </audio>
+
+            <p id="musicStatus">
+                🔊 Song चलाने के लिए Play दबाएँ
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- Advertisement Area -->
+    <section class="ads-section">
+
+        <h3>Advertisement</h3>
+
+        <div class="ad-box">
+            Advertisement
+        </div>
+
+        <div class="ad-box">
+            Advertisement
+        </div>
+
+        <div class="ad-box">
+            Advertisement
+        </div>
+
+        <div class="ad-box">
+            Advertisement
+        </div>
 
     </section>
 
 
-    <!-- ADS -->
+    <!-- Personalization Section -->
+    <section class="name-section">
 
-    <section class="ads">
+        <div class="gift-icon">
+            🎁
+        </div>
 
-      <div class="ad-box">
-        <span>विज्ञापन</span>
-        <small>Native Ad</small>
-      </div>
+        <h2>
+            अपना नाम लिखें
+        </h2>
 
-      <div class="ad-box">
-        <span>विज्ञापन</span>
-        <small>Native Ad</small>
-      </div>
+        <p>
+            यहाँ पर अपना नाम लिखें और अपने दोस्तों
+            और परिवार के सदस्यों को आपके नाम का
+            नवरात्रि Gift Link भेजें।
+        </p>
 
-      <div class="ad-box">
-        <span>विज्ञापन</span>
-        <small>Native Ad</small>
-      </div>
-
-      <div class="ad-box">
-        <span>विज्ञापन</span>
-        <small>Native Ad</small>
-      </div>
-
-    </section>
-
-
-    <!-- NAME SECTION -->
-
-    <section
-      id="name-section"
-      class="name-section"
-    >
-
-      <div class="decoration">
-        🪷 ✨ 🪔 ✨ 🪷
-      </div>
-
-      <h2>
-        यहाँ पर अपना नाम लिखे
-      </h2>
-
-      <p>
-        अपना नाम लिखें और अपने दोस्तों
-        और परिवार के सदस्यों को भेजें।
-        <br>
-        उनको आपके नाम का
-        <b>Gift Link</b> मिलेगा।
-      </p>
-
-
-      <form id="giftForm">
-
-        <label>
-          आपका नाम
-        </label>
 
         <input
-          id="nameInput"
-          type="text"
-          maxlength="50"
-          placeholder="अपना नाम लिखें..."
-          required
+            type="text"
+            id="nameInput"
+            placeholder="अपना नाम यहाँ लिखें"
+            maxlength="40"
+            autocomplete="name"
         >
 
 
-        <button type="submit">
-          🎁 मेरा Gift Link बनाएं →
+        <button
+            id="generateBtn"
+            class="generate-btn">
+            🎁 Gift Link बनाएं
         </button>
 
-      </form>
 
+        <div
+            id="result"
+            class="result"
+            style="display:none;">
 
-      <!-- RESULT -->
+            <p>
+                आपका Gift Link तैयार है ❤️
+            </p>
 
-      <div
-        id="result"
-        class="result"
-        style="display:none;"
-      >
+            <input
+                type="text"
+                id="generatedLink"
+                readonly
+            >
 
-        <h3>
-          🎁 आपका Gift Link तैयार है
-        </h3>
+            <div class="share-buttons">
 
-        <p id="resultText"></p>
+                <button id="copyBtn">
+                    📋 Copy Link
+                </button>
 
+                <button id="whatsappBtn">
+                    💚 WhatsApp
+                </button>
 
-        <div class="link-box">
+                <button id="shareBtn">
+                    📤 Share
+                </button>
 
-          <input
-            id="shareLink"
-            readonly
-          >
-
-          <button id="copyButton">
-            Copy
-          </button>
-
-        </div>
-
-
-        <div class="share-buttons">
-
-          <button id="shareButton">
-            📤 Share
-          </button>
-
-          <a
-            id="whatsappButton"
-            target="_blank"
-          >
-            WhatsApp
-          </a>
+            </div>
 
         </div>
-
-      </div>
 
     </section>
 
 
-    <!-- INFORMATION -->
-
-    <section class="info">
-
-      <div>
-        🙏
-      </div>
-
-      <h3>
-        कैसे काम करता है?
-      </h3>
-
-      <p>
-        अपना नाम लिखें →
-        Gift Link बनाएं →
-        अपने दोस्तों और परिवार को भेजें।
-      </p>
-
-    </section>
-
-
+    <!-- Footer -->
     <footer>
 
-      <p>
-        आप सभी को Advance में
-        नवरात्रि की हार्दिक शुभकामनाएं 🙏
-      </p>
+        <p>
+            🌺 जय माता दी 🌺
+        </p>
 
-      <small>
-        Made with ❤️ for Navratri
-      </small>
-
-    </footer>
-
-  </main>
-
-
-  <script src="script.js"></script>
-
-</body>
-</html>
+        <p>
+            यह शुभकामना संदेश अपने दोस्तों और
+           
